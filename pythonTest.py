@@ -1,14 +1,16 @@
+import argparse
 import os
 import sys
 import time
 import logging
 from datetime import datetime
-import argparse
+
 if __name__ == "__main__":
+    # 解析命令行参数
     parser = argparse.ArgumentParser()
     parser.add_argument("--name", help="the name to be logged")
     args = parser.parse_args()
-    
+
     # 获取当前时间
     time_date_total = datetime.today()
     time_date = str(time_date_total).split(' ')[0]
@@ -27,4 +29,7 @@ if __name__ == "__main__":
     logger.addHandler(ch)
 
     # 记录日志
-    logger.info("Test %s" % myname)
+    if args.name:
+        logger.info("Test for docker, name is: %s" % args.name)
+    else:
+        logger.info("Test")
