@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.9
 
 # 设置工作目录
 WORKDIR /app
